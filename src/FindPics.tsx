@@ -1,4 +1,4 @@
-function FindPics(props: { handlePicSubmit: any; error: boolean | void; }) {
+function FindPics(props: { handlePicSubmit: React.FormEventHandler; error: boolean | void; }) {
 
     const {
         handlePicSubmit,

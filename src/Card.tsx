@@ -1,5 +1,5 @@
 
-function Card(props: { handleClick: any; clickedOn: number[]; loose: boolean | void; data: any; }) {
+function Card(props: { handleClick: React.MouseEventHandler; clickedOn: number[]; loose: boolean | void; data: any; }) {
 
     const {
         handleClick,

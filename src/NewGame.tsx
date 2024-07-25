@@ -1,4 +1,4 @@
-function NewGame(props: { clickedOn: number[]; loose: boolean | void; handleStart: any; }) {
+function NewGame(props: { clickedOn: number[]; loose: boolean | void; handleStart: () => void; }) {
 
     const {
         clickedOn,

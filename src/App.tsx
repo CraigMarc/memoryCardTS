@@ -59,7 +59,7 @@ function App() {
 
 
   //event handlers
-  const handleClick = (e) => {
+  const handleClick = (e: Event) => {
     const card = e.currentTarget.id
     if (clickedOn.indexOf(card) != -1 && clickedOn.length > 0) {
       setLoose(true)
@@ -85,7 +85,7 @@ function App() {
   }
   //handle pic search
 
-  const handlePicSubmit = (event) => {
+  const handlePicSubmit = (event: Event) => {
     event.preventDefault();
     const dataSubmit = Object.fromEntries(new FormData(event.target).entries());
     setFindPicsState(false)
