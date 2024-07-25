@@ -1,4 +1,4 @@
-function Header(props) {
+function Header(props: { clickedOn: number[]; loose: boolean | undefined; bestGame: number; searchResult: string; }) {
 
     const {
         clickedOn,
@@ -8,6 +8,7 @@ function Header(props) {
 
     } = props;
 
+
     const renderMessage = () => {
         if (clickedOn.length == 12) {
             return (
@@ -15,15 +16,15 @@ function Header(props) {
             )
         }
 
-        if (loose == "true") {
+        if (loose == true) {
             return (
                 <h1>You Lose</h1>
             )
         }
 
     };
-    let search = searchResult
-    let upperCase = search.charAt(0).toUpperCase() + search.slice(1);
+    const search = searchResult
+    const upperCase = search.charAt(0).toUpperCase() + search.slice(1);
 
 
 

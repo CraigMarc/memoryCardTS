@@ -1,43 +1,4 @@
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-
-export default App*/
-
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Card } from './Card'
 import { Header } from './Header'
@@ -49,16 +10,16 @@ function App() {
 
 
   //states
-  const [clickedOn, setClickedOn] = useState([])
-  const [loose, setLoose] = useState()
+  const [clickedOn, setClickedOn] = useState<number[]>([])
+  const [loose, setLoose] = useState<boolean>()
   const [bestGame, setBestGame] = useState(0)
   const [data, setData] = useState({ hits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] })
-  const [error, setError] = useState()
+  const [error, setError] = useState<boolean | undefined>()
   const [findPicsState, setFindPicsState] = useState(true)
   const [searchResult, setSearchResult] = useState("mountains")
-  const [loading, setLoading] = useState()
+  const [loading, setLoading] = useState<boolean | undefined>()
 
-  const fetchInfo = async (pics) => {
+  const fetchInfo = async (pics: FormDataEntryValue | undefined) => {
     setLoading(true)
     if (pics == undefined) {
       pics = "mountains"
@@ -68,7 +29,7 @@ function App() {
       const res = await fetch("https://pixabay.com/api/?key=40272701-d1f0bb34d10cfd0d1c847f1fd&q=" + pics + "&image_type=photo")
 
       const picData = await res.json();
-      let picArr = picData.hits
+      const picArr = picData.hits
       if (picArr.length > 12) {
         setData(picData)
         setError()
@@ -76,7 +37,7 @@ function App() {
       }
 
       else {
-        setError("true")
+        setError(true)
 
       }
 
@@ -85,7 +46,7 @@ function App() {
     catch (error) {
       console.error("There has been a problem with your fetch operation:", error);
       //add error message to dom
-      setError("true")
+      setError(true)
       //setFindPicsState(true)
     }
 
@@ -99,9 +60,9 @@ function App() {
 
   //event handlers
   const handleClick = (e) => {
-    let card = e.currentTarget.id
+    const card = e.currentTarget.id
     if (clickedOn.indexOf(card) != -1 && clickedOn.length > 0) {
-      setLoose("true")
+      setLoose(true)
     }
 
 
@@ -136,7 +97,7 @@ function App() {
   }
 
   function clearAllInputs() {
-    let allInputs = document.querySelectorAll('input');
+    const allInputs = document.querySelectorAll('input');
 
     allInputs.forEach(singleInput => singleInput.value = '');
 
@@ -149,7 +110,7 @@ function App() {
 
 
 
-  if (findPicsState == false && error != "true") {
+  if (findPicsState == false && error != true) {
 
     return (
       <>

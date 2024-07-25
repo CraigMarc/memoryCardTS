@@ -1,11 +1,5 @@
-import map from './assets/map.png';
-import pizza1 from './assets/pizza1.jpeg';
-import pizza from './assets/pizza.jpeg';
-import pizza2 from './assets/pizza2.jpeg';
-import pizza3 from './assets/pizza3.jpeg';
-import pizza4 from './assets/pizza4.jpeg';
 
-function Card(props) {
+function Card(props: { handleClick: any; clickedOn: number[]; loose: boolean | undefined; data: any; }) {
 
     const {
         handleClick,
@@ -15,16 +9,9 @@ function Card(props) {
 
     } = props;
 
-    //pic array from files if want to stop using api *******
-
-    //let picArray = [map, pizza1, pizza, pizza2, pizza3, pizza4]
-
-    // ********** 
-
-    //console.log(data.hits)
-
-
-    let picArray = []
+    console.log(data)
+   
+    const picArray = []
 
     for (let i = 0; i <= 12; i++) {
         picArray.push(data.hits[i].webformatURL)
@@ -33,13 +20,13 @@ function Card(props) {
 
     //disable click
     let disable = false
-    if (clickedOn.length == 12 || loose == "true") {
+    if (clickedOn.length == 12 || loose == true) {
         disable = true
     }
     //create random array
 
     function shuffle() {
-        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
         let currentIndex = array.length, randomIndex;
 
 
@@ -56,7 +43,7 @@ function Card(props) {
         return array
     }
 
-    let randomArray = shuffle()
+    const randomArray = shuffle()
    
     return (
         <>

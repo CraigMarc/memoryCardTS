@@ -1,4 +1,4 @@
-function NewGame(props) {
+function NewGame(props: { clickedOn: number[]; loose: boolean | undefined; handleStart: any; }) {
 
     const {
         clickedOn,
@@ -7,8 +7,8 @@ function NewGame(props) {
 
     } = props;
 
-   if (clickedOn.length == 12 || loose == "true") {
-      
+   if (clickedOn.length == 12 || loose == true) {
+     
         return (
             <div className="newGameContainer">
                 <button onClick={handleStart}>Play Another Round</button>

@@ -1,15 +1,14 @@
-function FindPics(props) {
+function FindPics(props: { handlePicSubmit: any; error: boolean | undefined; }) {
 
     const {
         handlePicSubmit,
-        data,
         error,
 
     } = props;
 
 
     const renderError = () => {
-        if (error == "true") {
+        if (error == true) {
             return (
                 <h2>Pictures did not load try something else</h2>
             )
