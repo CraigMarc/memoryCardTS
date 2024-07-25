@@ -1,4 +1,4 @@
-function Header(props: { clickedOn: number[]; loose: boolean | undefined; bestGame: number; searchResult: string; }) {
+function Header(props: { clickedOn: number[]; loose: boolean | void; bestGame: number; searchResult: string; }) {
 
     const {
         clickedOn,

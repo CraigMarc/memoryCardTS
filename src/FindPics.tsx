@@ -1,4 +1,4 @@
-function FindPics(props: { handlePicSubmit: any; error: boolean | undefined; }) {
+function FindPics(props: { handlePicSubmit: any; error: boolean | void; }) {
 
     const {
         handlePicSubmit,

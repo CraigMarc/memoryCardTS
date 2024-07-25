@@ -11,15 +11,15 @@ function App() {
 
   //states
   const [clickedOn, setClickedOn] = useState<number[]>([])
-  const [loose, setLoose] = useState<boolean>()
+  const [loose, setLoose] = useState<boolean | void>()
   const [bestGame, setBestGame] = useState(0)
   const [data, setData] = useState({ hits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] })
-  const [error, setError] = useState<boolean | undefined>()
+  const [error, setError] = useState<boolean | undefined | void>()
   const [findPicsState, setFindPicsState] = useState(true)
   const [searchResult, setSearchResult] = useState("mountains")
   const [loading, setLoading] = useState<boolean | undefined>()
 
-  const fetchInfo = async (pics: FormDataEntryValue | undefined) => {
+  const fetchInfo = async (pics: FormDataEntryValue | undefined | void) => {
     setLoading(true)
     if (pics == undefined) {
       pics = "mountains"
@@ -145,7 +145,6 @@ function App() {
     <>
       <FindPics
         handlePicSubmit={handlePicSubmit}
-        data={data}
         error={error}
       />
 

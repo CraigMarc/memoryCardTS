@@ -1,5 +1,5 @@
 
-function Card(props: { handleClick: any; clickedOn: number[]; loose: boolean | undefined; data: any; }) {
+function Card(props: { handleClick: any; clickedOn: number[]; loose: boolean | void; data: any; }) {
 
     const {
         handleClick,
@@ -8,8 +8,6 @@ function Card(props: { handleClick: any; clickedOn: number[]; loose: boolean | u
         data,
 
     } = props;
-
-    console.log(data)
    
     const picArray = []
 
